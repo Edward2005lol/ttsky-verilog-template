@@ -20,7 +20,6 @@ module tt_um_Edward2005lol_top (
   assign uio_out[7:3] = 5'd0;
   assign uio_out[1:0] = 2'd0;
   assign uio_oe = 8'b11111100;
-  assign uo_out = '0;
 
   RangeFinder #(8) range_finder (.data_in(ui_in), 
               .clock(clk), 
@@ -102,6 +101,7 @@ module RangeFinder
         largest_num = '0;
         larger = 0;
         smaller = 0;
+        range = '0;
 
       	if (handle_finish) begin
           if ((number > new_largest_num) & (number > new_smallest_num)) begin
