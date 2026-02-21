@@ -95,6 +95,13 @@ module RangeFinder
         //that is stored in number 
         largest = new_largest_num;
         smallest = new_smallest_num;
+        large_reg_enable = 0;
+        small_reg_enable = 0;
+        smallest_num = '0;
+        largest_num = '0;
+        larger = 0;
+        smaller = 0;
+        
       	if (handle_finish) begin
           if ((number > new_largest_num) & (number > new_smallest_num)) begin
             largest = number;
