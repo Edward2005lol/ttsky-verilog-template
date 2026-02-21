@@ -64,7 +64,7 @@ module RangeFinder
      output logic [WIDTH-1:0] range,
      output logic             debug_error);
 
-    logic large_reg_enable, small_reg_enable, compare, reg_go_load, handle_finish, error;
+    logic large_reg_enable, small_reg_enable, compare, reg_go_load, handle_finish;
     logic [WIDTH-1:0] number;
     logic [WIDTH-1:0] largest_num, smallest_num;
     logic [WIDTH-1:0] new_largest_num, new_smallest_num;
@@ -93,6 +93,8 @@ module RangeFinder
         //if we are comparing then we need to check the current
         //largest and smallest number to the data_in value
         //that is stored in number 
+        largest = new_largest_num;
+        smallest = new_smallest_num;
       	if (handle_finish) begin
           if ((number > new_largest_num) & (number > new_smallest_num)) begin
             largest = number;
@@ -164,7 +166,7 @@ module fsm
     
   enum logic [1:0] {start, looping, error_state} currState, nextState;
 
-    logic go_asserted, finish_asserted;
+    logic go_asserted;
     always_comb begin
         case (currState) 
             start: begin
@@ -306,7 +308,16 @@ module fsm
                     handle_finish = 0;
                     nextState = error_state;
                 end
-            end             
+            end 
+            default: begin
+              go_asserted = 0;
+              compare = 0;
+              number = data_in;
+              reg_go_load = 0;
+              error = 0;
+              handle_finish = 0;
+              nextState = start;
+            end
         endcase
     end
 
