@@ -21,7 +21,7 @@ module tt_um_Edward2005lol_top (
   assign uio_out[1:0] = 2'd0;
   assign uio_oe = 8'b11111100;
 
-  RangeFinder(.data_in(ui_in), 
+  RangeFinder #(8) (.data_in(ui_in), 
               .clock(clk), 
               .reset(rst_n), 
               .go(uio_in[0]), 
