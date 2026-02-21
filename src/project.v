@@ -17,7 +17,7 @@ module tt_um_Edward2005lol_top (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uio_out[7:3] = 7'd0;
+  assign uio_out[7:3] = 5'd0;
   assign uio_out[1:0] = 2'd0;
   assign uio_oe = 8'b11111100;
 
@@ -69,7 +69,7 @@ module RangeFinder
     logic [WIDTH-1:0] largest_num, smallest_num;
     logic [WIDTH-1:0] new_largest_num, new_smallest_num;
     
-    fsm control (.clock(clock), 
+    fsm #(8) control (.clock(clock), 
                 .reset(reset), 
                 .go(go), 
                 .finish(finish),
@@ -77,7 +77,7 @@ module RangeFinder
                 .compare(compare),
                 .reg_go_load(reg_go_load),
                 .handle_finish(handle_finish),
-                 .error(debug_error),
+                .error(debug_error),
                 .number(number));
     
     //Register that stores the largest number we've seen
@@ -153,7 +153,7 @@ module RangeFinder
 endmodule: RangeFinder
  
 module fsm
-    #(parameter WIDTH = 16)
+    #(parameter WIDTH = 8)
     (input logic clock, reset, go, finish,
      input logic [WIDTH-1:0] data_in,
      output logic compare,
