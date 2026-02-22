@@ -176,6 +176,13 @@ module fsm
 
     logic go_asserted;
     always_comb begin
+        nextState = currState; 
+        go_asserted = 0;
+        compare = 0;
+        reg_go_load = 0;
+        handle_finish = 0;
+        error = 0;
+        number = data_in;
         case (currState) 
             start: begin
                 //if go is asserted then the sequence begins
