@@ -28,7 +28,7 @@ module tt_um_Edward2005lol_Slot_Machine_Top (
   //Make uo_out[7] be vsync
 
   //VGA logic/variables
-  wire [15:0] H_count_value, V_count_value;
+  wire [9:0] H_count_value, V_count_value;
   wire enable_V_counter;
   horizontal_counter h_counter(.clk(clk), .H_count_value(H_count_value), .enable_V_counter(enable_V_counter));
   vertical_counter v_counter(.clk(clk), .V_count_value(V_count_value), .enable_V_counter(enable_V_counter));
@@ -48,7 +48,7 @@ endmodule
 module horizontal_counter 
 (
     input logic clk,
-    output reg [15:0] H_count_value,
+    output reg [9:0] H_count_value,
     output logic enable_V_counter
 );
     initial H_count_value = 0;
@@ -68,7 +68,7 @@ module vertical_counter
 (
     input logic clk, 
     input logic enable_V_counter,
-    output reg [15:0] V_count_value
+    output reg [9:0] V_count_value
 );
 	initial V_count_value = 0;
     always @(posedge clk) begin

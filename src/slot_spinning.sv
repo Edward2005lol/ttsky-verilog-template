@@ -5,8 +5,8 @@ module display_slots
     input logic [1:0] symbol1, 
     input logic [1:0] symbol2,
     input logic [1:0] symbol3,
-    input logic [15:0] hcount,
-    input logic [15:0] vcount,
+    input logic [9:0] hcount,
+    input logic [9:0] vcount,
     output logic [1:0] red,
     output logic [1:0] green,
     output logic [1:0] blue 
