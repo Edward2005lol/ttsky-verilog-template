@@ -1,17 +1,17 @@
 # Tiny Tapeout project information
 project:
-  title:        "Range Finder"      # Project title
+  title:        "Slot Machine"      # Project title
   author:       "Edward Lei"      # Your name
   discord:      "@eddysoni"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Calculates the range of numbers given a sequence of numbers"      # One line description of what your project does
+  description:  "Spins 3 slots"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     25MHz       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  tiles: "1x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_Edward2005lol_top"
+  top_module:  "tt_um_Edward2005lol_Slot_Machine_Top"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -23,7 +23,7 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
+  ui[0]: "Start button"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
@@ -33,14 +33,14 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "red[0]"
+  uo[1]: "red[1]"
+  uo[2]: "green[0]"
+  uo[3]: "green[1]"
+  uo[4]: "blue[0]"
+  uo[5]: "blue[1]"
+  uo[6]: "hsync"
+  uo[7]: "vsync"
 
   # Bidirectional pins
   uio[0]: ""
