@@ -33,9 +33,9 @@ module tt_um_Edward2005lol_Slot_Machine_Top (
   wire [15:0] H_count_value, V_count_value;
   wire enable_V_counter;
   horizontal_counter h_counter(.clk(clk), .H_count_value(H_count_value), .enable_V_counter(enable_V_counter));
-  vertical_counter v_counter(.clk(clk), .V_count_value(V_count_vaule), .enable_V_counter(enable_V_counter));
+  vertical_counter v_counter(.clk(clk), .V_count_value(V_count_value), .enable_V_counter(enable_V_counter));
 
-  wire [1:0] symbol1, symbol2, symbol3; 
+//   wire [1:0] symbol1, symbol2, symbol3; 
   // display_slots draw_slots(.clk(clk), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3), .hcount(H_count_value), .vcount(V_count_value), .red(uo_out[1:0]), .green(uo_out[3:2]), .blue(uo_out[5:4]));
   // slot_spinner spin_slots (.start(start), .clk(clk), .reset_n(reset_n), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3));
   assign uo_out[6] = (H_count_value < 96) ? 1'b1:1'b0;
