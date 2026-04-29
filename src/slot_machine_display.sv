@@ -1,7 +1,6 @@
 module display_slots 
 (
-    input logic clk, 
-    input logic active, 
+    input logic clk,  
     input logic [1:0] symbol1, 
     input logic [1:0] symbol2,
     input logic [1:0] symbol3,
