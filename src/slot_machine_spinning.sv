@@ -1,18 +1,4 @@
-module slot_spinner
-(
-    input logic start, 
-    input logic clk, 
-    input logic reset_n,  
-    output logic [1:0] symbol1, 
-    output logic [1:0] symbol2, 
-    output logic [1:0] symbol3 
-);
-
-    slot_fsm control(.*);
-
-endmodule: slot_spinner
-
-module slot_fsm 
+module slot_spinner 
 (
     input logic clk, 
     input logic reset_n,
@@ -103,19 +89,19 @@ module slot_fsm
     
     logic [2:0] delay_index;
     logic [4:0] delay_array[7];
-    assign delay_array[0] = 5'd18;
-    assign delay_array[1] = 5'd22;
-    assign delay_array[2] = 5'd25;
-    assign delay_array[3] = 5'd28;
-    assign delay_array[4] = 5'd20;
-    assign delay_array[5] = 5'd26;
-    assign delay_array[6] = 5'd23;
-    assign delay_array[7] = 5'd27;
+    assign delay_array[0] = 5'd21;
+    assign delay_array[1] = 5'd26;
+    assign delay_array[2] = 5'd28;
+    assign delay_array[3] = 5'd31;
+    assign delay_array[4] = 5'd23;
+    assign delay_array[5] = 5'd29;
+    assign delay_array[6] = 5'd26;
+    assign delay_array[7] = 5'd30;
 
     logic [2:0] delay_index1;
     logic [4:0] delay_array1[7];
     assign delay_array1[0] = 5'd18;
-    assign delay_array1[1] = 5'd22;
+    assign delay_array1[1] = 5'd21;
     assign delay_array1[2] = 5'd20;
     assign delay_array1[3] = 5'd19;
     assign delay_array1[4] = 5'd16;
@@ -125,14 +111,14 @@ module slot_fsm
 
     logic [2:0] delay_index2;
     logic [4:0] delay_array2[7];
-    assign delay_array2[0] = 5'd14;
-    assign delay_array2[1] = 5'd19;
-    assign delay_array2[2] = 5'd13;
-    assign delay_array2[3] = 5'd15;
-    assign delay_array2[4] = 5'd12;
-    assign delay_array2[5] = 5'd17;
-    assign delay_array2[6] = 5'd20;
-    assign delay_array2[7] = 5'd16;
+    assign delay_array2[0] = 5'd18;
+    assign delay_array2[1] = 5'd23;
+    assign delay_array2[2] = 5'd17;
+    assign delay_array2[3] = 5'd18;
+    assign delay_array2[4] = 5'd16;
+    assign delay_array2[5] = 5'd21;
+    assign delay_array2[6] = 5'd24;
+    assign delay_array2[7] = 5'd20;
     
 
     always_ff @(posedge clk) begin
@@ -213,8 +199,8 @@ module slot_fsm
                 temp_symbol2 <= 2'b10;
                 temp_symbol3 <= 2'b11;
                 delay_index <= 0;
-                delay_index1 <= 3;
-                delay_index2 <= 2;
+                delay_index1 <= 0;
+                delay_index2 <= 1;
                 start_slow_count <= 0;
                 slow_count <= 0;
                 slot1_slow_count <= 0;
@@ -226,7 +212,4 @@ module slot_fsm
             curr_state <= next_state;
         end
     end
-endmodule: slot_fsm
-
-    
-
+endmodule: slot_spinner

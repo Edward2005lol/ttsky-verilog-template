@@ -1,0 +1,54 @@
+BLOCK RESETPATHS;
+BLOCK ASYNCPATHS;
+
+# Sets up clock + sets frequency
+LOCATE COMP "clk" SITE "G2";
+IOBUF  PORT "clk" PULLMODE=NONE IO_TYPE=LVCMOS33;
+FREQUENCY PORT "clk" 25 MHZ;
+
+# Sets up reset button
+LOCATE COMP "reset_n" SITE "D6";
+IOBUF  PORT "reset_n" PULLMODE=UP IO_TYPE=LVCMOS33;
+
+### Hint: Outputs look like the following 2 lines:
+# LOCATE COMP "PORT_NAME" SITE "PIN_NUM";
+# IOBUF  PORT "PORT_NAME" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# This is the top pin of 24
+LOCATE COMP "uo_out[1]" SITE "C16";
+IOBUF PORT "uo_out[1]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# This is the bottom pin of 24
+LOCATE COMP "uo_out[0]" SITE "D16";
+IOBUF PORT "uo_out[0]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# This is top pin of 23
+LOCATE COMP "uo_out[3]" SITE "B17";
+IOBUF PORT "uo_out[3]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# This is bottom pin of 23
+LOCATE COMP "uo_out[2]" SITE "C17";
+IOBUF PORT "uo_out[2]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# This is top pin 22
+LOCATE COMP "uo_out[5]" SITE "B15";
+IOBUF PORT "uo_out[5]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+#This is bottom pin 22
+LOCATE COMP "uo_out[4]" SITE "C15";
+IOBUF PORT "uo_out[4]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# This is bottom pin 21
+LOCATE COMP "uo_out[6]" SITE "C18";
+IOBUF PORT "uo_out[6]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+# This is top pin 21
+LOCATE COMP "uo_out[7]" SITE "D17";
+IOBUF PORT "uo_out[7]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
+
+### Hint: Inputs look like the following 2 lines:
+# LOCATE COMP "PORT_NAME" SITE "PIN_NUM";
+# IOBUF  PORT "PORT_NAME" PULLMODE=DOWN IO_TYPE=LVCMOS33;
+
+LOCATE COMP "ui_in[0]" SITE "R18";
+IOBUF PORT "ui_in[0]" PULLMODE=DOWN IO_TYPE=LVCMOS33;
