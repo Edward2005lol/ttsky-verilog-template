@@ -84,8 +84,8 @@ module slot_fsm
                 symbol1 = temp_symbol1;
                 symbol2 = temp_symbol2;
                 symbol3 = temp_symbol3;
-                if (go_back_to_start) begin
-                    next_state = start_state;
+                if (start) begin
+                    next_state = spin_slots;
                 end
                 else begin
                     next_state = stop_spinning_slot3; 
@@ -94,11 +94,11 @@ module slot_fsm
         endcase
     end
 
-    logic [21:0] slow_count, slot1_slow_count, slot2_slow_count, slot3_slow_count;
+    logic [21:0] slow_count, slot1_slow_count, slot2_slow_count;
     logic [24:0] start_slow_count;
-    logic [9:0] time_spent_spinning, time_spent_spinning_slot1, time_spent_spinning_slot2, time_done; 
+    logic [9:0] time_spent_spinning, time_spent_spinning_slot1, time_spent_spinning_slot2; 
     logic [1:0] temp_symbol1, temp_symbol2, temp_symbol3;
-    logic done_spinning, done_spinning_slot1, done_spinning_slot2, go_back_to_start;
+    logic done_spinning, done_spinning_slot1, done_spinning_slot2;
 
     
     logic [2:0] delay_index;
@@ -125,14 +125,14 @@ module slot_fsm
 
     logic [2:0] delay_index2;
     logic [4:0] delay_array2[7];
-    assign delay_array2[0] = 5'd15;
-    assign delay_array2[1] = 5'd20;
-    assign delay_array2[2] = 5'd14;
-    assign delay_array2[3] = 5'd16;
-    assign delay_array2[4] = 5'd13;
-    assign delay_array2[5] = 5'd18;
-    assign delay_array2[6] = 5'd21;
-    assign delay_array2[7] = 5'd17;
+    assign delay_array2[0] = 5'd14;
+    assign delay_array2[1] = 5'd19;
+    assign delay_array2[2] = 5'd13;
+    assign delay_array2[3] = 5'd15;
+    assign delay_array2[4] = 5'd12;
+    assign delay_array2[5] = 5'd17;
+    assign delay_array2[6] = 5'd20;
+    assign delay_array2[7] = 5'd16;
     
 
     always_ff @(posedge clk) begin
@@ -172,6 +172,7 @@ module slot_fsm
                 time_spent_spinning_slot1 <= time_spent_spinning_slot1 + 1;
                 if (time_spent_spinning_slot1 >= delay_array1[delay_index1]) begin
                     time_spent_spinning_slot1 <= 0;
+                    delay_index1 <= delay_index1 + 1;
                     done_spinning_slot1 <= 1;
                 end
                 else begin
@@ -189,6 +190,7 @@ module slot_fsm
                 time_spent_spinning_slot2 <= time_spent_spinning_slot2 + 1;
                 if (time_spent_spinning_slot2 >= delay_array2[delay_index2]) begin
                     time_spent_spinning_slot2 <= 0;
+                    delay_index2 <= delay_index2 + 1;
                     done_spinning_slot2 <= 1;
                 end
                 else begin
@@ -201,35 +203,22 @@ module slot_fsm
             else if ((curr_state == stop_spinning_slot2)) begin
                 slot2_slow_count <= slot2_slow_count + 1;
             end    
-            else if ((curr_state == stop_spinning_slot3) && (slot3_slow_count >= 22'd4028479)) begin
-                slot3_slow_count <= 0;
-                time_done <= time_done + 1;
+            else if ((curr_state == stop_spinning_slot3)) begin
                 temp_symbol1 <= temp_symbol1;
                 temp_symbol2 <= temp_symbol2;
                 temp_symbol3 <= temp_symbol3;  
-                if (time_done >= 5'd25) begin
-                    time_done <= 0;
-                    go_back_to_start <= 1;
-                end
-                else begin
-                    go_back_to_start <= 0;
-                end
-            end
-            else if (curr_state == stop_spinning_slot3) begin
-                slot3_slow_count <= slot3_slow_count + 1;
-            end   
+            end 
             else begin
                 temp_symbol1 <= 2'b00;
                 temp_symbol2 <= 2'b10;
                 temp_symbol3 <= 2'b11;
                 delay_index <= 0;
                 delay_index1 <= 3;
-                delay_index2 <= 5;
+                delay_index2 <= 2;
                 start_slow_count <= 0;
                 slow_count <= 0;
                 slot1_slow_count <= 0;
                 slot2_slow_count <= 0;
-                slot3_slow_count <= 0;
                 time_spent_spinning <= 0;
                 time_spent_spinning_slot1 <= 0;
                 time_spent_spinning_slot2 <= 0;
