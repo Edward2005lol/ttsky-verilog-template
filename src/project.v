@@ -35,7 +35,7 @@ module tt_um_Edward2005lol_Slot_Machine_Top (
 
   wire [1:0] symbol1, symbol2, symbol3; 
   display_slots draw_slots(.clk(clk), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3), .hcount(H_count_value), .vcount(V_count_value), .red(uo_out[1:0]), .green(uo_out[3:2]), .blue(uo_out[5:4]));
-  slot_spinner spin_slots (.start(ui_in[0]), .clk(clk), .reset_n(rst_n), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3));
+  slot_spinner spin_the_slots (.start(ui_in[0]), .clk(clk), .reset_n(rst_n), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3));
   assign uo_out[6] = (H_count_value < 96) ? 1'b1:1'b0;
   assign uo_out[7] = (V_count_value < 2) ? 1'b1:1'b0;
 

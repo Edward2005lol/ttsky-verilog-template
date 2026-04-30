@@ -77,18 +77,23 @@ module slot_spinner
                     next_state = stop_spinning_slot3; 
                 end
             end
+            default: 
+                symbol1 = temp_symbol1;
+                symbol2 = temp_symbol2;
+                symbol3 = temp_symbol3;
+                next_state = start_state;
         endcase
     end
 
     logic [21:0] slow_count, slot1_slow_count, slot2_slow_count;
     logic [24:0] start_slow_count;
-    logic [9:0] time_spent_spinning, time_spent_spinning_slot1, time_spent_spinning_slot2; 
+    logic [4:0] time_spent_spinning, time_spent_spinning_slot1, time_spent_spinning_slot2; 
     logic [1:0] temp_symbol1, temp_symbol2, temp_symbol3;
     logic done_spinning, done_spinning_slot1, done_spinning_slot2;
 
     
     logic [2:0] delay_index;
-    logic [4:0] delay_array[7];
+    logic [4:0] delay_array[8];
     assign delay_array[0] = 5'd21;
     assign delay_array[1] = 5'd26;
     assign delay_array[2] = 5'd28;
@@ -99,7 +104,7 @@ module slot_spinner
     assign delay_array[7] = 5'd30;
 
     logic [2:0] delay_index1;
-    logic [4:0] delay_array1[7];
+    logic [4:0] delay_array1[8];
     assign delay_array1[0] = 5'd18;
     assign delay_array1[1] = 5'd21;
     assign delay_array1[2] = 5'd20;
@@ -110,7 +115,7 @@ module slot_spinner
     assign delay_array1[7] = 5'd17;
 
     logic [2:0] delay_index2;
-    logic [4:0] delay_array2[7];
+    logic [4:0] delay_array2[8];
     assign delay_array2[0] = 5'd18;
     assign delay_array2[1] = 5'd23;
     assign delay_array2[2] = 5'd17;
