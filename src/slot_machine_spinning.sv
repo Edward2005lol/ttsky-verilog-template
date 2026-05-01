@@ -77,11 +77,12 @@ module slot_spinner
                     next_state = stop_spinning_slot3; 
                 end
             end
-            default: 
+            default: begin
                 symbol1 = temp_symbol1;
                 symbol2 = temp_symbol2;
                 symbol3 = temp_symbol3;
                 next_state = start_state;
+            end
         endcase
     end
 
