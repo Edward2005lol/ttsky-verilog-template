@@ -42,15 +42,16 @@ Before I get into the details of how my design operates and how to use it, I nee
 
 2. TinyTapeout VGA PMOD. Link to purchase one if you don't have one: https://store.tinytapeout.com/products/
 Tiny-VGA-Pmod-p678647356. This PMOD will be connected to the chip's output pins, specifically map and connect the output pins of the chip to the pins of the TinyTapeout VGA PMOD pins like so: 
-(uo_out[#] refers to the #'th output pin of the chip)
-uo_out[0] => R1
-uo_out[1] => G1
-uo_out[2] => B1
-uo_out[3] => VS
-uo_out[4] => R0
-uo_out[5] => G0
-uo_out[6] => B0
-uo_out[7] => HS
+
+(uo_out[#] refers to the #'th output pin of the chip) \
+uo_out[0] => R1 \
+uo_out[1] => G1 \
+uo_out[2] => B1 \
+uo_out[3] => VS \
+uo_out[4] => R0 \
+uo_out[5] => G0 \
+uo_out[6] => B0 \
+uo_out[7] => HS \
 
 3. Two push buttons. You will need one push button that connects to the chip's input port 0 (ui_in[0]). This first button will serve as your "lever" that you can "pull" to start the slot machine. Essentially this button will allow you to spin the slot machine and allows you to actually interact with the slot machine. The second push button should be connected to the chips "rst_n" input port. This button will allow for you to reset the slot machine in case of any errorneous behavior and allows you to start the slot machine interaction process over again and eliminates the errorneous behavior.   
 
