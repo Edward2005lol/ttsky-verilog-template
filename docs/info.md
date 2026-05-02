@@ -13,7 +13,9 @@ My Slot Machine project features 3 slots which all display 1 of 4 symbols. My pr
 
 ## How to test
 
-You simply have to connect uin_in[0] to a push button. This will be your start button. 
+** Ensure that you are using a clock frequency of 25MHz **
+
+You have to connect uin_in[0] to a push button. This will be your start button. 
 rst_n to another push button. This will be your reset button. 
 Finally, connect your TinyTapeout VGA PMOD pins to the chip output pins accordingly:
 R1 -> uo_out[0];

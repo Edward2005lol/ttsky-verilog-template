@@ -56,7 +56,9 @@ uo_out[7] => HS
 
 ** I will refer to the button that you hook up to the chip's input port 0 as the start button and the button that you hook up to the chip's rst_n port as the reset button **
 
-To recap: You need a display device that supports VGA, a TinyTapeout VGA PMOD, and two push buttons. You also must ensure that the chip output port connections to the TinyTapeout VGA PMOD pins match exactly what I stated above otherwise the diplay WILL NOT WORK. You also must ensure that both the rst_n input port and the ui_in[0] (input port 0) for the chip gets wired up to a push button other wise you will not be able to interact with the slot machine.    
+4. Make sure that the clock signal that you are using is at 25 Mhz
+
+To recap: You need a display device that supports VGA, a TinyTapeout VGA PMOD, and two push buttons. You also must ensure that the chip output port connections to the TinyTapeout VGA PMOD pins match exactly what I stated above otherwise the diplay WILL NOT WORK. You also must ensure that both the rst_n input port and the ui_in[0] (input port 0) for the chip gets wired up to a push button other wise you will not be able to interact with the slot machine. Finally, ensure that the clock signal that you are using is at 25 MHz. 
  
 -- WHAT IT LOOKS LIKE --
 
