@@ -25,7 +25,7 @@ VS -> uo_out[3] \
 R0 -> uo_out[4] \
 G0 -> uo_out[5] \
 B0 -> uo_out[6] \
-HS -> uo_out[7] \
+HS -> uo_out[7] 
 
 Make sure to also connect both grounds and 3V3 signals to their respective locations as well for the TinyTapeout VGA PMOD. 
 
@@ -33,8 +33,8 @@ Then connect the Tiny VGA PMOD to a monitor that supports VGA using a VGA cable.
 
 ## External hardware
 
-You will need 2 push buttons and the Tiny VGA PMOD
-You need a push button for the reset_n signal
-You need a push button for the start signal
-The TinyTapeout VGA PMOD 
+You will need 2 push buttons and the Tiny VGA PMOD \
+You need a push button for the reset_n signal \
+You need a push button for the start signal \
+The TinyTapeout VGA PMOD \
 Display monitor that supports VGA
