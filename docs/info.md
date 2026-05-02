@@ -17,15 +17,16 @@ My Slot Machine project features 3 slots which all display 1 of 4 symbols. My pr
 
 You have to connect uin_in[0] to a push button. This will be your start button. 
 rst_n to another push button. This will be your reset button. 
-Finally, connect your TinyTapeout VGA PMOD pins to the chip output pins accordingly:
-R1 -> uo_out[0];
-G1 -> uo_out[1];
-B1 -> uo_out[2];
-VS -> uo_out[3];
-R0 -> uo_out[4];
-G0 -> uo_out[5];
-B0 -> uo_out[6];
-HS -> uo_out[7];
+Finally, connect your TinyTapeout VGA PMOD pins to the chip output pins accordingly: \
+R1 -> uo_out[0] \
+G1 -> uo_out[1] \
+B1 -> uo_out[2] \
+VS -> uo_out[3] \
+R0 -> uo_out[4] \
+G0 -> uo_out[5] \
+B0 -> uo_out[6] \
+HS -> uo_out[7] \
+
 Make sure to also connect both grounds and 3V3 signals to their respective locations as well for the TinyTapeout VGA PMOD. 
 
 Then connect the Tiny VGA PMOD to a monitor that supports VGA using a VGA cable. You should see the slots beginning to spin on your display monitor. Then press your start button to start the spinning. 

@@ -1,35 +1,8 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Tapeout Verilog Project Template
+# VGA Slot Machine
 
 - [Read the documentation for project](docs/info.md)
-
-## What is Tiny Tapeout?
-
-Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital and analog designs manufactured on a real chip.
-
-To learn more and get started, visit https://tinytapeout.com.
-
-## Set up your Verilog project
-
-1. Add your Verilog files to the `src` folder.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-3. Edit [docs/info.md](docs/info.md) and add a description of your project.
-4. Adapt the testbench to your design. See [test/README.md](test/README.md) for more information.
-
-The GitHub action will automatically build the ASIC files using [LibreLane](https://www.zerotoasiccourse.com/terminology/librelane/).
-
-## Enable GitHub actions to build the results page
-
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
-
-## Resources
-
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://tinytapeout.com/discord)
-- [Build your design locally](https://www.tinytapeout.com/guides/local-hardening/)
 
 Hello all! My name is Edward Lei and my Project is the VGA Slot Machine! I hope you enjoy!
 
@@ -51,7 +24,7 @@ uo_out[3] => VS \
 uo_out[4] => R0 \
 uo_out[5] => G0 \
 uo_out[6] => B0 \
-uo_out[7] => HS \
+uo_out[7] => HS 
 
 3. Two push buttons. You will need one push button that connects to the chip's input port 0 (ui_in[0]). This first button will serve as your "lever" that you can "pull" to start the slot machine. Essentially this button will allow you to spin the slot machine and allows you to actually interact with the slot machine. The second push button should be connected to the chips "rst_n" input port. This button will allow for you to reset the slot machine in case of any errorneous behavior and allows you to start the slot machine interaction process over again and eliminates the errorneous behavior.   
 
