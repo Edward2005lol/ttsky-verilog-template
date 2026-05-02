@@ -36,14 +36,14 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: "red[0]"
-  uo[1]: "red[1]"
-  uo[2]: "green[0]"
-  uo[3]: "green[1]"
-  uo[4]: "blue[0]"
-  uo[5]: "blue[1]"
-  uo[6]: "hsync"
-  uo[7]: "vsync"
+  uo[0]: "red[1]"
+  uo[1]: "green[1]"
+  uo[2]: "blue[1]"
+  uo[3]: "vsync"
+  uo[4]: "red[0]"
+  uo[5]: "green[0]"
+  uo[6]: "blue[0]"
+  uo[7]: "hsync"
 
   # Bidirectional pins
   uio[0]: ""

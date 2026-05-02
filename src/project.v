@@ -21,23 +21,29 @@ module tt_um_Edward2005lol_Slot_Machine_Top (
   assign uio_oe  = 8'b11111111;
 
   //Make ui_in[0] where the start button will be hooked up to
-  //Make uo_out[1:0] be red
-  //Make uo_out[3:2] be blue
-  //Make uo_out[5:4] be green
-  //Make uo_out[6] be hsync
-  //Make uo_out[7] be vsync
-
+  
   //VGA logic/variables
   wire [9:0] H_count_value, V_count_value;
   wire enable_V_counter;
+  wire [1:0] red, green, blue;
+
   horizontal_counter h_counter(.clk(clk), .H_count_value(H_count_value), .enable_V_counter(enable_V_counter));
   vertical_counter v_counter(.clk(clk), .V_count_value(V_count_value), .enable_V_counter(enable_V_counter));
 
   wire [1:0] symbol1, symbol2, symbol3; 
-  display_slots draw_slots(.clk(clk), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3), .hcount(H_count_value), .vcount(V_count_value), .red(uo_out[1:0]), .green(uo_out[3:2]), .blue(uo_out[5:4]));
+  display_slots draw_slots(.clk(clk), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3), .hcount(H_count_value), .vcount(V_count_value), .red(red), .green(green), .blue(blue));
   slot_spinner spin_the_slots (.start(ui_in[0]), .clk(clk), .reset_n(rst_n), .symbol1(symbol1), .symbol2(symbol2), .symbol3(symbol3));
-  assign uo_out[6] = (H_count_value < 96) ? 1'b1:1'b0;
-  assign uo_out[7] = (V_count_value < 2) ? 1'b1:1'b0;
+  
+  //Assign outputs
+  assign uo_out[0] = red[1];
+  assign uo_out[1] = green[1];
+  assign uo_out[2] = blue[1];
+  assign uo_out[3] = (V_count_value < 2) ? 1'b1:1'b0;
+  assign uo_out[4] = red[0];
+  assign uo_out[5] = green[0];
+  assign uo_out[6] = blue[0];
+  assign uo_out[7] = (H_count_value < 96) ? 1'b1:1'b0;
+  
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, 1'b0};
