@@ -9,6 +9,7 @@ Hello all! My name is Edward Lei and my Project is the VGA Slot Machine! I hope 
 -- VGA SLOT MACHINE --
 
 -- SET UP --
+
 Before I get into the details of how my design operates and how to use it, I need to go over how to set things up. There are a few things you need in addition to the physical chip that my design will be on.
 
 1. You will need a monitor display system/device that can support a VGA display. This means that whatever device you are using to display my project will need to support the VGA cable and have a VGA input port for the cable. The reason why you need a display device that supports VGA is because my design utilizes VGA as its display mechanism, so in order to see my design in action you need a display device that supports VGA. The Kenowa portable VGA monitor is a great low cost display device that supports VGA if you are looking to purchase a VGA display. 
